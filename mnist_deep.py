@@ -5,7 +5,10 @@ mnist = input_data.read_data_sets("Mnist_data/", one_hot=True)
 
 # start tensorflow interactiveSession
 import tensorflow as tf
-sess = tf.InteractiveSession()
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+#sess = tf.InteractiveSession()
+sess = tf.compat.v1.InteractiveSession()
 
 # weight initialization
 def weight_variable(shape):

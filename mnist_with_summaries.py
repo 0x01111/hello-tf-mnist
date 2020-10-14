@@ -35,6 +35,13 @@ import tensorflow.python.platform
 import input_data
 import tensorflow as tf
 
+
+import tensorflow.compat.v1 as tf
+
+tf.disable_v2_behavior()
+#sess = tf.InteractiveSession()
+sess = tf.compat.v1.InteractiveSession()
+
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_boolean('fake_data', False, 'If true, uses fake data '
@@ -48,7 +55,7 @@ def main(_):
   mnist = input_data.read_data_sets('Mnist_data/', one_hot=True,
                                     fake_data=FLAGS.fake_data)
 
-  sess = tf.InteractiveSession()
+#  sess = tf.InteractiveSession()
 
   # Create the model
   x = tf.placeholder(tf.float32, [None, 784], name='x-input')

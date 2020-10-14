@@ -25,14 +25,14 @@ import time
 import tensorflow.python.platform
 import numpy
 from six.moves import xrange  # pylint: disable=redefined-builtin
-import tensorflow as tf
-
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
 #from tensorflow.examples.tutorials.mnist import input_data
 #from tensorflow.examples.tutorials.mnist import mnist
 import input_data, mnist
 
 # Basic model parameters as external flags.
-flags = tf.app.flags
+flags = tf.compat.v1.flags 
 FLAGS = flags.FLAGS
 flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
 flags.DEFINE_integer('max_steps', 2000, 'Number of steps to run trainer.')

@@ -26,12 +26,17 @@ from __future__ import print_function
 # Import data
 #from tensorflow.examples.tutorials.mnist import input_data
 import input_data
-import tensorflow as tf
+#import tensorflow as tf
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 
 mnist = input_data.read_data_sets("Mnist_data/", one_hot=True)
 
-sess = tf.InteractiveSession()
+#sess = tf.InteractiveSession()
 
+sess = tf.compat.v1.InteractiveSession()
 # Create the model
 x = tf.placeholder(tf.float32, [None, 784])
 W = tf.Variable(tf.zeros([784, 10]))
